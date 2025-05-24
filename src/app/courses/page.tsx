@@ -8,7 +8,7 @@ import { Heart, BarChart, Eye, Share2, Search, Filter } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/layout/Footer";
-import { categories } from "@/lib/data/courseCategories";
+import { categories, Course } from "@/lib/data/courseCategories";
 import { generateCoursesListSchema } from "@/lib/utils";
 import {
   Dialog,
@@ -20,9 +20,6 @@ import {
 } from "@/components/ui/dialog";
 import { toast } from "@/components/ui/use-toast";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-
-// Import the existing Course type
-import { Course } from '@/lib/data/courseCategories';
 
 // Define a type for the course object
 // interface Course {

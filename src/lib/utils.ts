@@ -108,11 +108,44 @@ export function generateFAQSchema(faqs: Array<{ question: string; answer: string
 }
 
 /**
+ * Define specific metadata types for the generateMetadata function
+ */
+interface CourseMetadata {
+  type: 'course';
+  title: string;
+  description: string;
+  slug: string;
+  image?: string;
+}
+
+interface CategoryMetadata {
+  type: 'category';
+  name: string;
+  description: string;
+  slug: string;
+  courses: Array<{ title: string; slug: string }>;
+}
+
+type MetadataType = 
+  | { type: 'home' }
+  | { type: 'courses' }
+  | CourseMetadata
+  | CategoryMetadata;
+
+function isCourseMetadata(data: MetadataType | undefined): data is CourseMetadata {
+  return data?.type === 'course';
+}
+
+function isCategoryMetadata(data: MetadataType | undefined): data is CategoryMetadata {
+  return data?.type === 'category';
+}
+
+/**
  * Generate metadata for different page types
  */
 export function generateMetadata(
   pageType: "home" | "course" | "category" | "courses",
-  data?: Record<string, unknown>
+  data?: MetadataType
 ) {
   const baseTitle = "Eduveda Academy – Bridge to Your Dream Company";
   const baseDescription =
@@ -129,7 +162,7 @@ export function generateMetadata(
       };
 
     case "course":
-      if (!data) return {};
+      if (!isCourseMetadata(data)) return {};
       return {
         title: data.title,
         description: data.description || `Master ${data.title} with our comprehensive course. ${baseDescription}`,
@@ -152,7 +185,7 @@ export function generateMetadata(
       };
 
     case "category":
-      if (!data) return {};
+      if (!isCategoryMetadata(data)) return {};
       return {
         title: `${data.name} Courses`,
         description: `Explore our ${data.name} courses and advance your career with cutting-edge skills and knowledge.`,

@@ -1,5 +1,14 @@
 import Head from "next/head";
 
+interface JsonLdType {
+  "@context": string;
+  "@type": string;
+  name?: string;
+  description?: string;
+  url?: string;
+  [key: string]: unknown;
+}
+
 interface SeoProps {
   title: string;
   description: string;
@@ -9,7 +18,7 @@ interface SeoProps {
   ogImageAlt?: string;
   twitterCard?: string;
   twitterSite?: string;
-  jsonLd?: Record<string, unknown>;
+  jsonLd?: JsonLdType;
 }
 
 export default function Seo({
