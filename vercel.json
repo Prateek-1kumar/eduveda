@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "installCommand": "npm ci",
+  "framework": "nextjs",
+  "outputDirectory": ".next",
+  "images": {
+    "domains": [
+      "source.unsplash.com",
+      "images.unsplash.com",
+      "ext.same-assets.com",
+      "ugc.same-assets.com"
+    ],
+    "sizes": [16, 32, 48, 64, 96, 128, 256, 384, 512, 1024, 2048]
+  },
+  "routes": [
+    {
+      "src": "/courses/(?<slug>[^/]+)$",
+      "dest": "/courses/[slug]?slug=$slug"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" }
+      ]
+    },
+    {
+      "source": "/static/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}

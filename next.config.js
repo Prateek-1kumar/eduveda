@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    unoptimized: true,
+    // Remove unoptimized for Vercel deployment
+    // unoptimized: true,
     domains: [
       "source.unsplash.com",
       "images.unsplash.com",
@@ -30,6 +31,14 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
+  },
+  // Add output configuration for Vercel
+  output: 'standalone',
+  // Enable production source maps for better debugging
+  productionBrowserSourceMaps: true,
+  // Add support for Vercel Analytics
+  experimental: {
+    scrollRestoration: true,
   },
 };
 
