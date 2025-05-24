@@ -195,21 +195,21 @@ export default function CourseDetailsPage({
 
                 <div className="flex items-center space-x-2">
                   <span className="text-gray-700">Share:</span>
-                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
+                  <button type="button" className="text-gray-600 hover:text-blue-600 transition-colors">
                     <Facebook className="h-4 w-4" />
-                  </a>
-                  <a href="#" className="text-gray-600 hover:text-blue-400 transition-colors">
+                  </button>
+                  <button type="button" className="text-gray-600 hover:text-blue-400 transition-colors">
                     <Twitter className="h-4 w-4" />
-                  </a>
-                  <a href="#" className="text-gray-600 hover:text-red-600 transition-colors">
+                  </button>
+                  <button type="button" className="text-gray-600 hover:text-red-600 transition-colors">
                     <Share2 className="h-4 w-4" />
-                  </a>
-                  <a href="#" className="text-gray-600 hover:text-blue-700 transition-colors">
+                  </button>
+                  <button type="button" className="text-gray-600 hover:text-blue-700 transition-colors">
                     <Linkedin className="h-4 w-4" />
-                  </a>
-                  <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors">
+                  </button>
+                  <button type="button" className="text-gray-600 hover:text-blue-500 transition-colors">
                     <Mail className="h-4 w-4" />
-                  </a>
+                  </button>
                 </div>
               </div>
 
