@@ -10,7 +10,6 @@ export type Course = {
   category: string;
   price: number;
   image: string;
-  description?: string; // Added description property
 };
 
 export type ValuePack = {

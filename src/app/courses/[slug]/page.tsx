@@ -1,5 +1,7 @@
 "use client";
 
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,7 +18,7 @@ interface CourseParams {
   slug: string;
 }
 
-interface PageProps {
+type Props = {
   params: CourseParams;
   searchParams: { [key: string]: string | string[] | undefined };
 }
@@ -24,7 +26,7 @@ interface PageProps {
 export default function CourseDetailsPage({
   params,
   searchParams,
-}: PageProps) {
+}: Props) {
   const router = useRouter();
   const { slug } = params;
 
