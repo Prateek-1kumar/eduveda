@@ -2,7 +2,7 @@ import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import { Toaster } from "@/components/ui/toaster"
 
-export default function ClientBody({ children }: React.PropsWithChildren<{}>) {
+export default function ClientBody({ children }: React.PropsWithChildren<Record<string, unknown>>) {
   return (
     <>
       <Navbar />
@@ -13,4 +13,4 @@ export default function ClientBody({ children }: React.PropsWithChildren<{}>) {
       <Toaster />
     </>
   )
-} 
+}

@@ -21,14 +21,29 @@ import {
 import { toast } from "@/components/ui/use-toast";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
+// Import the existing Course type
+import { Course } from '@/lib/data/courseCategories';
+
+// Define a type for the course object
+// interface Course {
+//   id: string;
+//   title: string;
+//   description: string;
+//   image: string;
+//   category: string;
+//   slug: string;
+//   price: number;
+//   // Add other properties as needed
+// }
+
 export default function CoursesPage() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [quickViewCourse, setQuickViewCourse] = useState<any>(null);
-  const [analyticsCourse, setAnalyticsCourse] = useState<any>(null);
+  const [quickViewCourse, setQuickViewCourse] = useState<Course | null>(null);
+  const [analyticsCourse, setAnalyticsCourse] = useState<Course | null>(null);
   const [shareDialogOpen, setShareDialogOpen] = useState(false);
   const [shareUrl, setShareUrl] = useState("");
   const [shareTitle, setShareTitle] = useState("");
@@ -74,7 +89,7 @@ export default function CoursesPage() {
   };
   
   // Handle analytics view
-  const handleAnalytics = (course: any) => {
+  const handleAnalytics = (course: Course) => {
     setAnalyticsCourse(course);
     toast({
       title: "Course Stats",
@@ -83,7 +98,7 @@ export default function CoursesPage() {
   };
   
   // Handle quick view
-  const handleQuickView = (course: any) => {
+  const handleQuickView = (course: Course) => {
     setQuickViewCourse(course);
   };
   
@@ -110,7 +125,7 @@ export default function CoursesPage() {
   };
   
   // Handle share
-  const handleShare = (course: any) => {
+  const handleShare = (course: Course) => {
     const url = `${window.location.origin}/courses/${course.slug}`;
     setShareUrl(url);
     setShareTitle(course.title);
