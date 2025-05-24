@@ -16,11 +16,15 @@ interface CourseParams {
   slug: string;
 }
 
+interface PageProps {
+  params: CourseParams;
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
 export default function CourseDetailsPage({
   params,
-}: {
-  params: CourseParams;
-}) {
+  searchParams,
+}: PageProps) {
   const router = useRouter();
   const { slug } = params;
 
