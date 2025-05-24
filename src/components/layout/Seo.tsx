@@ -9,7 +9,7 @@ interface SeoProps {
   ogImageAlt?: string;
   twitterCard?: string;
   twitterSite?: string;
-  jsonLd?: Record<string, any>;
+  jsonLd?: Record<string, unknown>;
 }
 
 export default function Seo({

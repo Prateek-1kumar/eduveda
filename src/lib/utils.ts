@@ -112,7 +112,7 @@ export function generateFAQSchema(faqs: Array<{ question: string; answer: string
  */
 export function generateMetadata(
   pageType: "home" | "course" | "category" | "courses",
-  data?: any
+  data?: Record<string, unknown>
 ) {
   const baseTitle = "Eduveda Academy – Bridge to Your Dream Company";
   const baseDescription =
